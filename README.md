@@ -30,35 +30,30 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
 
 #This packages must be installed for some visualizations to work properly
-#!pip install cufflinks
-#!pip install chart_studio
-#!pip install plotly
+!pip install cufflinks
+!pip install chart_studio
+!pip install plotly
 
 #This is needed to make use of pandas profilling to show the break down of the data
-#conda install -c conda-forge pandas-profiling
+conda install -c conda-forge pandas-profiling
 
-# This is need to print out notebook as pdf
-#pip install -U notebook-as-pdf
-#conda install nbconvert
+#This is need to print out notebook as pdf
+pip install -U notebook-as-pdf
+conda install nbconvert
 
-# Display the Dive visualization for the training data.
+#Display the Dive visualization for the training data.
 from IPython.core.display import display, HTML
 #!pip install facets-overview
 
-
-
 # The two csv found on the link were combined to have an increased observation
-banking_data = pd.read_csv("C:\\Users\\dadai\\Downloads\\Machine Learning\\ICA\\BANKING DATA FROM UCI\\BANK MARKETING\\bank-combined.csv")
-
-banking_data.shape
+banking_data = pd.read_csv("..\\bank-combined.csv")
 
 from pandas_profiling import ProfileReport
 banking_data.profile_report() 
 
-# This piece of code was used to revalidate that this items here represented 
-# as duplicated above doesn't mean they are actually duplicated rows entirely 
-#but we have some rows whose values tallies with some values from other 
-#rows for more than 5-7 columns
+This piece of code was used to revalidate that this items here represented as duplicated above doesn't mean they are actually duplicated rows entirely 
+but we have some rows whose values tallies with some values from other 
+rows for more than 5-7 columns
 
 duplicateRowsDF = banking_data[banking_data.duplicated()]
 duplicateRowsDF.head(10)
